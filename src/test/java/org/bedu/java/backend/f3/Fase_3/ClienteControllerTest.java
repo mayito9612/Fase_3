@@ -65,20 +65,16 @@ public class ClienteControllerTest {
 
         given(clienteService.findAll()).willReturn(list);
 
-
             }
     @Test
     @DisplayName("getCliente")
     void findById() throws Exception {
-
         given(clienteService.finById(anyLong())).willReturn(Optional.of(
                 ClienteDTO.builder()
                         .id(1L)
                         .nombre("Juan")
                         .correoContacto("juan@gmail.com")
                         .direccion("Monterrey").build()));
-
-
 
     }
     @Test

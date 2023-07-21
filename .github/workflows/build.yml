@@ -1,7 +1,8 @@
-# El nombre que recibe el pipeline
+#Pruebas CI/CD
+#El nombre que recibe el pipeline
 name: Integracion Continua
 
-# Los pasos para ejecutar el pipeline
+#Los pasos para ejecutar el pipeline
 jobs:
   build-test:
     runs-on: ubuntu-latest
