@@ -18,6 +18,7 @@ public class Cliente {
     private long id;
     @Column
     private String nombre;
+
     @Column
     private String correoContacto;
     @Column

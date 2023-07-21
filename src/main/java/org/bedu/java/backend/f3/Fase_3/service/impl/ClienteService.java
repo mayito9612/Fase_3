@@ -2,7 +2,9 @@ package org.bedu.java.backend.f3.Fase_3.service.impl;
 
 import org.bedu.java.backend.f3.Fase_3.dto.cliente.ClienteDTO;
 import org.bedu.java.backend.f3.Fase_3.dto.cliente.CrearClienteDTO;
+import org.bedu.java.backend.f3.Fase_3.dto.cliente.UpdateClienteDTO;
 import org.bedu.java.backend.f3.Fase_3.entity.Cliente;
+import org.bedu.java.backend.f3.Fase_3.exception.GuestNotFoundException;
 import org.bedu.java.backend.f3.Fase_3.mapper.IClienteMapper;
 import org.bedu.java.backend.f3.Fase_3.repository.IClienteRepository;
 import org.bedu.java.backend.f3.Fase_3.service.IClienteService;
@@ -41,7 +43,22 @@ public class ClienteService implements IClienteService {
         Cliente entity = repository.save(mapper.toModel(data));
         return mapper.toDTO(entity);
     }
+    public void update(long id, UpdateClienteDTO data){
+        Optional<Cliente> actual = repository.findById(id);
+
+        if (!actual.isPresent()){
+            throw new GuestNotFoundException();
+        }
+        Cliente cliente = actual.get();
+        mapper.toModel(cliente, data);
+        repository.save(cliente);
+    }
     public void delete(long id){
         repository.deleteById(id);
+    }
+
+    @Override
+    public Object findAll() {
+        return null;
     }
 }

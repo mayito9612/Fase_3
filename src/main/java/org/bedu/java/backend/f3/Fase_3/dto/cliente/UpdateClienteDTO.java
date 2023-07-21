@@ -1,15 +1,10 @@
 package org.bedu.java.backend.f3.Fase_3.dto.cliente;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class ClienteDTO {
+public class UpdateClienteDTO {
     private long id;
     private String nombre;
     private String correoContacto;

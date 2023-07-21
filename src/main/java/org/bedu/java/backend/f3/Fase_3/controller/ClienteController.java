@@ -2,17 +2,17 @@ package org.bedu.java.backend.f3.Fase_3.controller;
 
 import org.bedu.java.backend.f3.Fase_3.dto.cliente.ClienteDTO;
 import org.bedu.java.backend.f3.Fase_3.dto.cliente.CrearClienteDTO;
+import org.bedu.java.backend.f3.Fase_3.dto.cliente.UpdateClienteDTO;
 import org.bedu.java.backend.f3.Fase_3.service.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("clientes")
+@RequestMapping("/clientes")
 public class ClienteController {
 
     private IClienteService service;
@@ -36,7 +36,11 @@ public class ClienteController {
     public ClienteDTO save(@RequestBody CrearClienteDTO data){
         return service.save(data);
     }
-
+    @PutMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@RequestBody UpdateClienteDTO data, @PathVariable("id") long id){
+        service.update(id, data);
+    }
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("id") long id){
