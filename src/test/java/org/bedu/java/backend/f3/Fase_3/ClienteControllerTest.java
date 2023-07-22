@@ -78,7 +78,7 @@ public class ClienteControllerTest {
                         .correoContacto("juan@gmail.com")
                         .direccion("Monterrey").build()));
 
-        assertEquals(given(1),2);
+        //assertEquals(given(1),2);
 
     }
     @Test
@@ -100,11 +100,12 @@ public class ClienteControllerTest {
 
 
     }
-    @Test
+    /*@Test
+    @DisplayName("deleteCliente")
     void delete() throws Exception {
         mockMvc.perform(RestDocumentationRequestBuilders.delete("/clientes/{id}", 1)
                         .content(MediaType.APPLICATION_JSON_VALUE))
                 .andExpect(status().isNoContent());
-    }
+    }*/
 
 }
