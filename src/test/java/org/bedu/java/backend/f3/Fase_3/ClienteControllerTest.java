@@ -78,6 +78,8 @@ public class ClienteControllerTest {
                         .correoContacto("juan@gmail.com")
                         .direccion("Monterrey").build()));
 
+        assertEquals(given(1),2);
+
     }
     @Test
     @DisplayName("updateCliente")
