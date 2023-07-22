@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -52,7 +53,7 @@ public class ClienteControllerTest {
                 .build();
 
         given(clienteService.save(crearClienteDTO)).willReturn(clienteDTO);
-
+        assertEquals(clienteDTO.getId() ,2);
     }
 
     @Test
@@ -64,6 +65,7 @@ public class ClienteControllerTest {
                 );
 
         given(clienteService.findAll()).willReturn(list);
+        assertEquals(list.size() ,2);
 
             }
     @Test
